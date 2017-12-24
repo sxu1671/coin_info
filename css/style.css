@@ -1,0 +1,51 @@
+/* CSS styles are here */
+
+/*element: p*/
+/*class: .center*/
+/*id: #para*/
+
+header {
+    font: 12px georgia, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left
+}
+
+p.login {
+    font: 12px georgia, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: right
+}
+
+footer {
+    font: 12px georgia, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center
+}
+
+p, ol, ul {
+	font: 15px georgia, sans-serif;
+	text-align: justify;
+}
+
+h1 {
+    text-align: left;
+	margin-left: 20px;
+    font: 2em georgia, sans-serif;
+}
+
+h2 {
+	font: 1.5em georgia, sans-serif;
+}
+
+h3 {
+	font: 1.17em, georgia, sans-serif;
+}
+
+p.frontPageLinks {
+    text-align: left;
+    margin-left: 20px;
+}
+
