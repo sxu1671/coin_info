@@ -26,6 +26,7 @@ auth_client = gdax.AuthenticatedClient(GDAXapi_key, GDAXapi_secret, GDAXpass)
 
 request = auth_client.get_accounts()
 profile_ids = {account['currency']: account['id'] for account in request}
+files = {}
 
 fills = auth_client.get_fills()
 
@@ -138,6 +139,19 @@ def get_gains(table):
     return price_diff.sum()
 
 
+def create_csv(table):
+    coins = table['product_id'].unique()
+    clean_coins = [x for x in coins if str(x) != 'nan']
+    if len(clean_coins) > 1:
+        print("More than one coin in table being saved.")
+    if len(clean_coins) == 0:
+        print("No coins in table")
+    coin = clean_coins[0]
+    name = coin + '_summary.csv'
+    table.to_csv(name)
+    files[coin] = name
+
+
 # uses above functions to create one continous table with transfers and trades data
 def get_chart(coin):
     coin_transfers = create_transfers_table(coin)
@@ -150,3 +164,4 @@ def get_chart(coin):
 # Example call
 LTC_avg = get_chart('LTC')
 print(LTC_avg)
+create_csv(LTC_avg)
